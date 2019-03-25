@@ -9,7 +9,8 @@
     "@types/ragemp-s": "github:CocaColaBear/types-ragemp-s#master"
   },
   "dependencies": {
-    "fast-glob": "^2.2.6"
+    "fast-glob": "^2.2.6",
+    "mysql2": "^1.6.5"
   },
   "repository": {
     "type": "git",
