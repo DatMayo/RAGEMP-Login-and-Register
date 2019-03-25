@@ -29,6 +29,5 @@ module.exports =
 					});
 			}
 		);
-		// console.log(`Got new data from registration form with username '${username}' and password '${password}'`);
 	},
 };
