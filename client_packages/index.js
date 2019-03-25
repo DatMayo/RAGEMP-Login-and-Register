@@ -1,0 +1,1 @@
+require('demoproject/index.js');

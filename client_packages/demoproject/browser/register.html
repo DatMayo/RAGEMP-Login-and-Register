@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="./css/style.css">
+		<script>
+			$(() =>
+			{
+				$('form').on('submit', e =>
+				{
+					e.preventDefault();
+
+					const username = $('#login').val();
+					const password = $('#password').val();
+					const passwordretype = $('#passwordretype').val();
+					if(!username)
+					{
+						// ToDo -> Show error
+						return $('#login').focus();
+					}
+					if(!password)
+					{
+						// ToDo -> Show error
+						return $('#password').focus();
+					}
+					if(!passwordretype)
+					{
+						// ToDo -> Show error
+						return $('#passwordretype').focus();
+					}
+					if(password != passwordretype)
+					{
+						// ToDo -> Show error
+						$('#password').val('');
+						$('#passwordretype').val('');
+						return $('#password').focus();
+					}
+					mp.trigger('sendRegistrationInfo', username, password);
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<div class="wrapper fadeInDown">
+			<div id="formContent">
+			  <!-- Tabs Titles -->
+		  
+			  <!-- Icon -->
+			  <div class="fadeIn first">
+				<img src="https://i.imgur.com/zFvnFJl.png" id="icon" alt="User Icon" />
+			  </div>
+		  
+			  <!-- Login Form -->
+			  <form method="POST">
+				<input type="text" id="login" class="fadeIn second" name="login" placeholder="Benutzername">
+				<input type="text" id="password" class="fadeIn third" name="password" placeholder="Passwort">
+				<input type="text" id="passwordretype" class="fadeIn third" name="passwordretype" placeholder="Passwort wiederholen">
+				<input type="submit" class="fadeIn fourth" value="Registrieren">
+			  </form>
+		  
+			  <!-- Remind Passowrd -->
+			  <div id="formFooter">
+				<a class="underlineHover" href="pwreset.html">Passwort vergessen</a> | <a class="underlineHover" href="login.html">Login</a>
+			  </div>
+		  
+			</div>
+		  </div>
+	</body>
+</html>
