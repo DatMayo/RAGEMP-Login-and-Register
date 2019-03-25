@@ -40,7 +40,7 @@
 						$('#passwordretype').val('');
 						return $('#password').focus();
 					}
-					mp.trigger('sendRegistrationInfo', username, password);
+					// mp.events.callRemote('OnPlayerRegister', username, password);
 				})
 			});
 		</script>
