@@ -1,14 +1,13 @@
 /* global mp */
 
-const fs = require('fs');
-const path = require('path');
+const fg = require('fast-glob');
 
-fs.readdirSync(path.resolve(__dirname, 'events')).forEach(file =>
+fg.sync('**/*.js', { onlyFiles: false, deep: 2, cwd: 'packages/demoproject/events' }).forEach(file =>
 {
-	mp.events.add(require('./events/' + file));
+	mp.events.add(require(`./events/${file}`));
 });
 
-fs.readdirSync(path.resolve(__dirname, 'commands')).forEach(file =>
+fg.sync('**/*.js', { onlyFiles: false, deep: 2, cwd: 'packages/demoproject/commands' }).forEach(file =>
 {
 	mp.events.addCommand(require('./commands/' + file));
 });
