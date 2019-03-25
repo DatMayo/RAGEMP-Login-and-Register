@@ -8,3 +8,8 @@ mp.events.add('guiReady', () =>
 		mp.gui.cursor.show(true, true);
 	}
 });
+
+mp.events.add('PlayerRegister', (username, password) =>
+{
+	mp.events.callRemote('OnPlayerRegister', username, password);
+});
