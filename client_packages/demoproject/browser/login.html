@@ -14,6 +14,22 @@
 				$('form').on('submit', e =>
 				{
 					e.preventDefault();
+
+					const username = $('#login').val();
+					const password = $('#password').val();
+
+					if(!username)
+					{
+						// ToDo -> Show error
+						return $('#login').focus();
+					}
+					if(!password)
+					{
+						// ToDo -> Show error
+						return $('#password').focus();
+					}
+
+					mp.trigger('PlayerLogin', username, password);
 				})
 			});
 		</script>
@@ -39,7 +55,42 @@
 			  <div id="formFooter">
 				<a class="underlineHover" href="register.html">Registrieren</a>
 			  </div>
-		  
+			</div>
+		  </div>
+		  <div class="modal fade" id="userDoesNotExists" tabindex="-1" role="dialog" aria-labelledby="userDoesNotExistsLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="userDoesNotExistsLabel">Login</h5>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+				  Der angebenene Benutzername existiert nicht
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		  <div class="modal fade" id="wrongPassword" tabindex="-1" role="dialog" aria-labelledby="wrongPasswordLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="wrongPasswordLabel">Login</h5>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+				  Das angegebene Passwort ist nicht korrekt
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+				</div>
+			  </div>
 			</div>
 		  </div>
 	</body>

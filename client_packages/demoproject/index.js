@@ -9,11 +9,11 @@ mp.events.add('guiReady', () =>
 	}
 });
 
+/* Registration */
 mp.events.add('PlayerRegister', (username, password) =>
 {
 	mp.events.callRemote('OnPlayerRegister', username, password);
 });
-
 mp.events.add('UserAllreadyExists', (username, password) =>
 {
 	menu.execute('$("#userExists").modal()');
@@ -22,4 +22,25 @@ mp.events.add('UserAllreadyExists', (username, password) =>
 mp.events.add('RegistrationSuccessfull', (username, password) =>
 {
 	menu.execute('$("#registrationSuccessfull").modal()');
+});
+
+/* Login */
+mp.events.add('PlayerLogin', (username, password) =>
+{
+	mp.events.callRemote('OnPlayerLogin', username, password);
+});
+mp.events.add('UserDoesNotExists', (username, password) =>
+{
+	menu.execute('$("#userDoesNotExists").modal()');
+});
+
+mp.events.add('WrongPassword', (username, password) =>
+{
+	menu.execute('$("#wrongPassword").modal()');
+});
+
+mp.events.add('LoginSuccessfull', (username, password) =>
+{
+	menu.destroy();
+	mp.gui.cursor.show(false, false);
 });
