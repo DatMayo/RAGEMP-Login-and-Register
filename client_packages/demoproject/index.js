@@ -13,3 +13,13 @@ mp.events.add('PlayerRegister', (username, password) =>
 {
 	mp.events.callRemote('OnPlayerRegister', username, password);
 });
+
+mp.events.add('UserAllreadyExists', (username, password) =>
+{
+	menu.execute('$("#userExists").modal()');
+});
+
+mp.events.add('RegistrationSuccessfull', (username, password) =>
+{
+	menu.execute('$("#registrationSuccessfull").modal()');
+});
